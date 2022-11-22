@@ -3,15 +3,31 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ["plugin:react/recommended", "standard-with-typescript", "prettier"],
+  extends: [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:prettier/recommended",
+    "plugin:import/warnings",
+    "plugin:import/errors",
+    "plugin:import/typescript",
+  ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    ecmaVersion: "latest",
+    ecmaVersion: 2018,
     sourceType: "module",
-    project: "tsconfig.eslint.json",
+    project: ["./tsconfig.json"],
     tsconfigRootDir: __dirname,
     ecmaFeatures: {
       jsx: true,
+    },
+  },
+  ignorePatterns: [".eslintrc.js"],
+  settings: {
+    react: {
+      version: "detect",
     },
   },
   plugins: ["react", "react-hooks", "@typescript-eslint"],
@@ -139,6 +155,7 @@ module.exports = {
     "@typescript-eslint/no-unsafe-assignment": "off",
     "@typescript-eslint/no-unsafe-member-access": "off",
     "@typescript-eslint/no-unsafe-argument": "off",
+    semi: ["error", "never"],
   },
   overrides: [
     {
@@ -199,20 +216,6 @@ module.exports = {
         "import/no-named-default": "off",
         "import/no-anonymous-default-export": "off",
         "@typescript-eslint/no-unsafe-argument": "off",
-      },
-    },
-    {
-      files: ["./**/*.stories.tsx"],
-      rules: {
-        "import/no-anonymous-default-export": "off",
-        "@typescript-eslint/explicit-function-return-type": "off",
-      },
-    },
-    {
-      files: ["./src/generated/*"],
-      rules: {
-        "@typescript-eslint/no-explicit-any": "off",
-        "@typescript-eslint/no-shadow": "off",
       },
     },
   ],

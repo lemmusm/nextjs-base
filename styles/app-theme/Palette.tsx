@@ -1,4 +1,4 @@
-import { AppPalette } from './appTheme.types';
+import { AppPalette } from './appTheme.types'
 
 const palette: AppPalette = {
   primary: {
@@ -34,12 +34,12 @@ const palette: AppPalette = {
   confirmation: {
     main: '#00B902',
   },
-};
+}
 
-const PaletteColors = {
+const Colors = {
   palette: {
     ...palette,
   },
-};
+}
 
-export default PaletteColors;
+export default Colors
